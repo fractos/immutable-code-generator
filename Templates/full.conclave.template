@@ -1,0 +1,84 @@
+using System;
+using System.Xml;
+using Newtonsoft.Json;
+using Conclave;
+
+namespace #Namespace#
+{
+	public class #Classname# : IData
+	{
+		#PrivatePropertiesReadOnly#
+
+		#PublicPropertiesReadable#
+
+		public #Classname#(#Classname# #ClassnameLower#)
+		{
+			#ConstructorLoadPrivatesFromPeer#
+		}
+
+		public #Classname#(#PropertiesAsArgumentDefinitions#)
+		{
+			#ConstructorLoadPrivatesFromArguments#
+		}
+
+		public #Classname# Mutate(Func<Builder, #Classname#> mutator)
+		{
+			Builder builder = new Builder(this);
+			return mutator(builder);
+		}
+
+		public class Builder
+		{
+			public static implicit operator #Classname#(Builder builder)
+			{
+				return builder.ToModel();
+			}
+
+			public static implicit operator Builder(#Classname# model)
+			{
+				return new Builder(model);
+			}
+
+			#PublicPropertiesWritable#
+
+			public Builder()
+			{ }
+
+			public Builder(#Classname# #ClassnameLower#)
+			{
+				#ConstructorLoadFromPeer#
+			}
+
+			public Builder(#PropertiesAsArgumentDefinitions#)
+			{
+				#ConstructorLoadFromArguments#
+			}
+
+			public #Classname# ToModel()
+			{
+				return new #Classname#(#PropertiesAsArgumentsWithThis#);
+			}
+
+			public Builder FromModel(#Classname# #ClassnameLower#)
+			{
+				#ConstructorLoadFromPeer#
+				return this;
+			}
+		}
+
+		public object Clone()
+		{
+			return new #Classname#.Builder(this);
+		}
+
+		public void ToXml(XmlWriter writer)
+		{
+			#ToXmlSection#
+		}
+
+		public void ToJson(JsonWriter writer)
+		{
+			#ToJsonSection#
+		}
+	}
+}

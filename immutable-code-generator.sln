@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsImmutableCodeGenerator", "WindowsImmutableCodeGenerator\WindowsImmutableCodeGenerator.csproj", "{D82FCD50-9BFC-414F-AB0B-91AC7022AEEB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templates", "Templates", "{C9665EF6-FC7E-4B05-B1DB-75C6A3BAA9BD}"
+	ProjectSection(SolutionItems) = preProject
+		Templates\full.conclave.template = Templates\full.conclave.template
+		Templates\full.template = Templates\full.template
+		Templates\nobuilder.conclave.template = Templates\nobuilder.conclave.template
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D82FCD50-9BFC-414F-AB0B-91AC7022AEEB}.Debug|x86.ActiveCfg = Debug|x86
+		{D82FCD50-9BFC-414F-AB0B-91AC7022AEEB}.Debug|x86.Build.0 = Debug|x86
+		{D82FCD50-9BFC-414F-AB0B-91AC7022AEEB}.Release|x86.ActiveCfg = Release|x86
+		{D82FCD50-9BFC-414F-AB0B-91AC7022AEEB}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

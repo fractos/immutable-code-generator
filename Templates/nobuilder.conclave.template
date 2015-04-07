@@ -1,0 +1,32 @@
+using System;
+using System.Xml;
+using Newtonsoft.Json;
+using Conclave;
+
+namespace #Namespace#
+{
+	public class #Classname# : IData
+	{
+		#PublicPropertiesWritable#
+
+		public #Classname#(#Classname# #ClassnameLower#)
+		{
+			#ConstructorLoadPrivatesFromPeer#
+		}
+
+		public object Clone()
+		{
+			return new #Classname#.Builder(this);
+		}
+
+		public void ToXml(XmlWriter writer)
+		{
+			#ToXmlSection#
+		}
+
+		public void ToJson(JsonWriter writer)
+		{
+			#ToJsonSection#
+		}
+	}
+}
