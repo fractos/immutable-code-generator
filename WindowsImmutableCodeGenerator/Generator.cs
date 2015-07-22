@@ -72,7 +72,7 @@ namespace WindowsImmutableCodeGenerator
                                     ));
 
             tokenList.AddOrUpdate("#ToXmlSection#",
-                                  String.Format("writer.WriteStartElement(\"{0}\");\r\n\r\n\t\t\t{1}\r\n\r\n\t\t\twriter.WriteEndElement();\r\n",
+                                  String.Format("writer.WriteStartElement(\"{0}\");\r\n\r\n\t\t\t{1}\r\n\r\n\t\t\twriter.WriteEndElement();",
                                                 codeClassName.ToLower(), xmlPropertyWrites));
 
 
@@ -99,7 +99,7 @@ namespace WindowsImmutableCodeGenerator
                                 ));
 
             tokenList.AddOrUpdate("#ToJsonSection#",
-                                  String.Format("writer.WriteStartObject();\r\n\r\n\t\t\t{0}\r\n\r\n\t\t\twriter.WriteEndObject();\r\n",
+                                  String.Format("writer.WriteStartObject();\r\n\r\n\t\t\t{0}\r\n\r\n\t\t\twriter.WriteEndObject();",
                                                 jsonPropertyWrites));
 
             return tokenList.Replace(codeTemplate);

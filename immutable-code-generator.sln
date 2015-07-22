@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templates", "Templates", "{C9665EF6-FC7E-4B05-B1DB-75C6A3BAA9BD}"
 	ProjectSection(SolutionItems) = preProject
 		Templates\full.conclave.template = Templates\full.conclave.template
+		Templates\full.inversion.template = Templates\full.inversion.template
 		Templates\full.template = Templates\full.template
 		Templates\nobuilder.conclave.template = Templates\nobuilder.conclave.template
 	EndProjectSection

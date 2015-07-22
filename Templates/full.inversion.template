@@ -1,6 +1,9 @@
 using System;
 using System.Xml;
+
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
 using Inversion;
 
 namespace #Namespace#
@@ -80,5 +83,10 @@ namespace #Namespace#
 		{
 			#ToJsonSection#
 		}
+
+		public JObject Data
+        {
+            get { return JObject.FromObject(this); }
+        }
 	}
 }
