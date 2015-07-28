@@ -86,7 +86,7 @@ namespace #Namespace#
 
 		public JObject Data
         {
-            get { return JObject.FromObject(this); }
+            get { return this.ToJsonObject(); }
         }
 	}
 }
