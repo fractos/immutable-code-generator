@@ -1,0 +1,158 @@
+using System;
+using System.Xml;
+
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
+using Inversion;
+
+namespace #Namespace#
+{
+	public class #Classname# : Class, IData
+	{
+		#PrivatePropertiesReadOnly#
+
+		#PublicPropertiesReadable#
+		
+		public #Classname#() : base()
+		{
+			base.Id = "vocab:#Classname#";
+            base.Title = "#Classname#";
+            base.Description = "A #Classname# entity.";
+            base.SupportedOperations.Add(new Operation
+            {
+                Id = "_:#Classname#_retrieve",
+                Method = "GET",
+                Label = "Retrieves an #Classname# entity",
+                Returns = "vocab:#Classname#"
+            });
+
+            this.InitialiseLinkedData();
+		}
+
+		public #Classname#(#Classname# #ClassnameLower#)
+		{
+			#ConstructorLoadPrivatesFromPeer#
+			
+			this.InitialiseLinkedData();
+		}
+
+		public #Classname#(#PropertiesAsArgumentDefinitions#)
+		{
+			#ConstructorLoadPrivatesFromArguments#
+			
+			this.InitialiseLinkedData();
+		}
+		
+		protected void InitialiseLinkedData()
+        {
+            base.Id = this.GetLinkedDataId();
+            this.Context = new Context(this.GetLinkedDataContext());
+            this.Type = "vocab:#Classname#";
+        }
+
+        protected string GetLinkedDataId()
+        {
+            return String.Format("{0}", Context.BaseURL);
+        }
+
+        protected string GetLinkedDataContext()
+        {
+            return String.Format("{0}/contexts/#Classname#.jsonld", Context.BaseURL);
+        }		
+
+		public #Classname# Mutate(Func<Builder, #Classname#> mutator)
+		{
+			Builder builder = new Builder(this);
+			return mutator(builder);
+		}
+
+		public class Builder
+		{
+			public static implicit operator #Classname#(Builder builder)
+			{
+				return builder.ToModel();
+			}
+
+			public static implicit operator Builder(#Classname# model)
+			{
+				return new Builder(model);
+			}
+
+			#PublicPropertiesWritable#
+
+			public Builder()
+			{ }
+
+			public Builder(#Classname# #ClassnameLower#)
+			{
+				#ConstructorLoadFromPeer#
+			}
+
+			public Builder(#PropertiesAsArgumentDefinitions#)
+			{
+				#ConstructorLoadFromArguments#
+			}
+
+			public #Classname# ToModel()
+			{
+				return new #Classname#(#PropertiesAsArgumentsWithThis#);
+			}
+
+			public Builder FromModel(#Classname# #ClassnameLower#)
+			{
+				#ConstructorLoadFromPeer#
+				return this;
+			}
+		}
+
+		public object Clone()
+		{
+			return new #Classname#.Builder(this);
+		}
+
+		public void ToXml(XmlWriter writer)
+		{
+			#ToXmlSection#
+		}
+		
+		protected void WriteJsonProperties(JsonWriter writer, bool asLinkedData = false)
+		{
+			#ToJsonSection#
+		}
+
+		public void ToJson(JsonWriter writer)
+		{
+			writer.WriteStartObject();
+			
+			this.WriteJsonProperties(writer);
+			
+			writer.WriteEndObject();
+		}
+		
+		public override void ToJsonLD(JsonWriter writer)
+		{
+			writer.WriteStartObject();
+			
+			this.WriteJsonLDProperties(writer);
+			this.WriteJsonProperties(writer, asLinkedData: true);
+			
+			writer.WriteEndObject();
+		}
+
+		public JObject Data
+        {
+            get { return this.ToJsonObject(); }
+        }
+		
+		public static #Classname# FromJToken(JToken source, #Classname# default#Classname#)
+		{
+			Builder builder = new Builder
+			{
+			
+			};
+			
+			return builder;
+		}
+	}
+}
